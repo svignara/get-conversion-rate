@@ -8,8 +8,11 @@ var jsdom = require('jsdom'),
 
 //CORS middleware, only allow from svignara.github.io
 router.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://svignara.github.io');
-    res.setHeader('Access-Control-Allow-Origin', 'http://svignara.github.io');
+	var allowedOrigins = ['http://svignara.github.io', 'https://svignara.github.io'];
+	var origin = req.headers.origin;
+	if(allowedOrigins.indexOf(origin) > -1){
+		res.setHeader('Access-Control-Allow-Origin', origin);
+	}
     res.header('Access-Control-Allow-Methods', 'GET');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
