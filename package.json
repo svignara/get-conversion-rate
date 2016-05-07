@@ -1,0 +1,23 @@
+{
+  "name": "get-conversion-rate",
+  "version": "1.0.0",
+  "description": "Simple API that will get the conversion rate from one currency to another.",
+  "main": "get-conversion-rate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svignara/get-conversion-rate.git"
+  },
+  "author": "Suvi",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/svignara/get-conversion-rate/issues"
+  },
+  "homepage": "https://github.com/svignara/get-conversion-rate#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jsdom": "^9.0.0"
+  }
+}
