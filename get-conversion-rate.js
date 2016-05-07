@@ -6,6 +6,14 @@ var jsdom = require('jsdom'),
     router = express.Router(),
     port = process.env.PORT || 3000;
 
+//CORS middleware
+router.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 router.get('/', function(req, res){
 	res.json({ message : 'api is up and running!' });
 });
