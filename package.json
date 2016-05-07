@@ -2,9 +2,8 @@
   "name": "get-conversion-rate",
   "version": "1.0.0",
   "description": "Simple API that will get the conversion rate from one currency to another.",
-  "main": "get-conversion-rate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node get-conversion-rate.js"
   },
   "repository": {
     "type": "git",
