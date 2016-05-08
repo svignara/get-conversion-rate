@@ -20,9 +20,9 @@ router.get('/', function(req, res){
 
 router.get('/convert', function(req, res){
 
-	var fromCntry = (req.query.fromCntry) ? req.query.fromCntry : '',
-		toCntry = (req.query.toCntry) ? req.query.toCntry : '',
-		sendQ = (fromCntry.length && toCntry.length) ? fromCntry + ' to ' + toCntry + ' currency' : '';
+	var sellCurrency = (req.query.sellCurrency) ? req.query.sellCurrency : '',
+		buyCurrency = (req.query.buyCurrency) ? req.query.buyCurrency : '',
+		sendQ = (sellCurrency.length && buyCurrency.length) ? sellCurrency + ' to ' + buyCurrency + ' currency' : '';
 
 	if (!sendQ.length){
 		res.status(400).send('naa b, check your params, something\'s not right..');
@@ -42,7 +42,7 @@ router.get('/convert', function(req, res){
 	    	var values = [].slice.call(window.document.getElementsByClassName('ccw_data')),
 	    		selections = [].slice.call(window.document.getElementsByClassName('ccw_unit_selector')),
 	    		i = 0,
-	    		resultObj = { fromCntry : { value : 0, currency : '' }, toCntry : { value : 0, currency : '' } },
+	    		resultObj = { sellCurrency : { value : 0, currency : '' }, buyCurrency : { value : 0, currency : '' } },
 	    		populateObj = function(key, value, currency){
 		    		resultObj[key].value = value;
 		    		resultObj[key].currency = currency;
@@ -54,7 +54,7 @@ router.get('/convert', function(req, res){
 		   	}
 
 	    	values.forEach(function(val){
-	    		var key = (i === 0) ? 'fromCntry' : 'toCntry',
+	    		var key = (i === 0) ? 'sellCurrency' : 'buyCurrency',
 	    			selectedName = selections[i].firstChild.innerHTML;
 	    		populateObj(key, val.value, selectedName + ' (' + selections[i].value + ')')
 	    		i++;
